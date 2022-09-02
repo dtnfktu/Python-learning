@@ -7,4 +7,4 @@ b_x = float(input('координата по х : '))
 b_y = float(input('координата по y : '))
 
 rasst = ((a_x - b_x) ** 2 + (a_y - b_y) ** 2) ** 0.5
-print('Расстояние между точками А и В = ' + str(rasst))
+print("Расстояние между точками А и В = {:5.2f}".format(rasst))
