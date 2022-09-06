@@ -60,3 +60,23 @@ while n != ReverseNumber(n):
 print('Palindrome is :', n)
 
 # Палиндром #################################################################
+
+# Random ####################################################################
+
+import time
+
+def GetRandomNumber(a, b):
+    return a + int((time.time() - int(time.time())) * (10 ** 11)) % (b - a)
+
+
+RandomList = []
+for i in range(1,100):
+    RandomList.append(GetRandomNumber(1,100))
+
+
+print(RandomList)
+RandomList.sort()
+print()
+print(RandomList)
+
+# Random ####################################################################
