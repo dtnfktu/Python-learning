@@ -26,7 +26,6 @@ summa = 0
 
 while (a != 0):
     summa += a % 10
-    #print(summa)
     a //= 10
 
 print('Sum from int =', summa)
