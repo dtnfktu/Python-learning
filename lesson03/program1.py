@@ -1,25 +1,28 @@
 import random
 
 def CreateRandomList(ListLen = 10, MinNum = 0, MaxNum = 25): 
-    ''' The method generates a list of random integers of a given length ListLen (default = 10)
-    The numbers take a value from MinNum (default = 0) to MaxNum (default = 25)
+    ''' Метод создания списка заданной длины (по умолчанию ListLen = 10),
+    заполненного случайными целыми числами в дапазоне от MinNum (по умолчания = 0)
+    до MaxNum (по умолчанию = 25) включительно
     '''
-    NewList = [random.randint(MinNum, MaxNum) for i in range(ListLen)]
+    NewList = [random.randint(MinNum, MaxNum + 1) for i in range(ListLen)]
     return NewList
 
 def GetSumInOddPosition(AList):
-    '''The loop summarizes the elements at odd positions of a given list.
-    The step in the cycle is 2 - only the necessary elements are selected without checking for the parity of the position, the passage through the list is twice as fast.
+    '''Метод подсчета суммы элементов заданного списка AList,
+    стоящих на нечётных позициях
     '''
     summa = 0
-    numPos = 1
-    while numPos <= len(AList):
-        summa += AList[numPos]
-        numPos += 2
+    range_len = len(AList)
+    
+    for i in range(1, range_len, 2):
+        summa += AList[i]
+
     return summa
 
+
 List = CreateRandomList()
-print('Considering list:')
+print('Рассматриваемая последовательность целых чисел:')
 print(List)
 
-print('Sum of elements in odd positions =', GetSumInOddPosition(List))
+print('Сумма элементов на нечетных позициях =', GetSumInOddPosition(List))

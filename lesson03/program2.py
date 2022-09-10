@@ -1,8 +1,9 @@
 import random
 
 def CreateRandomList(ListLen = 10, MinNum = 0, MaxNum = 25): 
-    ''' The method generates a list of random integers of a given length ListLen (default = 10)
-    The numbers take a value from MinNum (default = 0) to MaxNum (default = 25)
+    ''' Метод создания списка заданной длины (по умолчанию ListLen = 10),
+    заполненного случайными целыми числами в дапазоне от MinNum (по умолчания = 0)
+    до MaxNum (по умолчанию = 25) включительно
     '''
     NewList = [random.randint(MinNum, MaxNum) for i in range(ListLen)]
     return NewList

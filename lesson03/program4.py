@@ -1,10 +1,13 @@
 def DecToBin(dec):
-    if dec == 0:
-        return '0'
+    '''Перевод целого числа из десятичной системы счисления в двоичную
+    '''
     bin = ''
-    while dec != 0:
+    while True:
         bin = str(dec % 2) + bin
         dec //= 2
+        if dec == 0:
+            break
+    
     return bin
 
 st = input('Enter integer positive number : ')
