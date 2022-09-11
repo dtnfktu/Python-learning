@@ -10,10 +10,10 @@ def DecToBin(dec):
     
     return bin
 
-st = input('Enter integer positive number : ')
+st = input('Введите целое неотрицательное число : ')
 while not st.isdigit():
-    st = input('Enter integer positive number : ')
+    st = input('Введите целое неотрицательное число : ')
 
 num = int(st)
 
-print('Answer is : ', DecToBin(num))
+print('Двоичное представление числа : ', DecToBin(num))

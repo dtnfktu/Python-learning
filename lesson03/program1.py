@@ -9,7 +9,7 @@ def CreateRandomList(ListLen = 10, MinNum = 0, MaxNum = 25):
     return NewList
 
 def GetSumInOddPosition(AList):
-    '''Метод подсчета суммы элементов заданного списка AList,
+    '''Метод подсчета сумм элементов заданного списка AList,
     стоящих на нечётных позициях
     '''
     summa = 0

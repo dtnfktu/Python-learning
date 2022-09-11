@@ -9,6 +9,8 @@ def CreateRandomList(ListLen = 10, MinNum = 0, MaxNum = 25):
     return NewList
 
 def CountMultiplicationOfPairNumbers(AList):
+    '''Подосчёт произведений пар списка AList
+    '''
     res = []
     LeftIndex = 0
     RightIndex = len(AList) - 1
@@ -19,8 +21,8 @@ def CountMultiplicationOfPairNumbers(AList):
     return res
 
 List = CreateRandomList(ListLen = random.randint(1, 10))
-print('Considering list :')
+print('Исходный список :')
 print(List)
 
-print('The resulting list')
+print('Произведения пар элементов исходного списка :')
 print(CountMultiplicationOfPairNumbers(List))

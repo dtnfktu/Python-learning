@@ -1,4 +1,3 @@
-import math
 import random
 
 def CreateRandomList(ListLen = 10, MinNum = 0, MaxNum = 25): 
@@ -6,7 +5,6 @@ def CreateRandomList(ListLen = 10, MinNum = 0, MaxNum = 25):
     '''
     NewList = [round(random.random() + random.randint(MinNum, MaxNum), 3) for i in range(ListLen)]
     return NewList
-
 
 def GetMaxFractionalPart(List):
     '''Поиск максимальной дробной части среди элементов списка
