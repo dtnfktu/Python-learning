@@ -1,4 +1,5 @@
-def prime_numbers(lim:int):
+
+def prime_numbers(lim):
     ''' Возвращает список простых чисел от 2 до lim включительно
     '''
     nums = [i for i in range(3, lim + 1, 2)]
@@ -30,7 +31,7 @@ def prime_numbers(lim:int):
 def list_of_multipliers(n):
     '''Возвращает список простых множителей числа n
     '''
-    lst = prime_numbers(n)
+    lst = prime_numbers(n // 2)
 
     res_list = []
     for i in range(0, len(lst)):
@@ -39,5 +40,30 @@ def list_of_multipliers(n):
 
     return res_list
 
-print(prime_numbers(568))
-print(list_of_multipliers(568))
+def leibnitz_pi(n) :
+    '''Нахождение числа П степенным рядом Лейбница
+    '''
+    sum = 0.0
+
+    for i in range(0, 100_000_000) :
+        sum += (1 / (2 * i + 1)) * ((-1) ** i)
+    return sum * 4
+
+def arctan_pi(accuracy) :
+    '''Нахождение числа ПИ степенным рядом арктангенса
+    '''
+    koef = 2 * (3 ** 0.5)
+    final_ans = 1.0
+    last_ans = 0.0
+    n = 1
+
+    while abs(koef * final_ans - koef * last_ans) >= accuracy :
+        last_ans = final_ans
+        final_ans += 1 / ((2 * n + 1) * ((-3) ** n))
+        n += 1
+
+    return final_ans * koef
+    
+
+
+print(arctan_pi(0.00000000001))
