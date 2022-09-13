@@ -1,101 +1,28 @@
-# Подсчёт суммы цифр вещественного числа
+def prime_numbers(lim:int):
+    nums = [i for i in range(3, lim + 1, 2)]
+    print(nums)
+    indexlist = []
+    index = 0
+    while (index < len(nums)):
 
-def IsFloatNumber(a):
-    try:
-        float(a)
-        return True
-    except:
-        return False
+        for i in range(index + 1, len(nums)):
+            if nums[i] % nums[index] == 0:
+                indexlist.append(i)
 
-str = input('Enter the float number: ').replace(',','.')
-while not IsFloatNumber(str):
-    str = input('Enter the float number: ').replace(',','.')
+        index += 1
 
-str = str.replace('-','').replace('.','')
-print(str)
+    # index = 0
+    # while (index < len(indexlist)):
+    #     si = index + 1
+    #     while si < len(indexlist):
+    #         if indexlist[si] == indexlist[index] :
+    #             indexlist.remove(si)
+    #         else:
+    #             si += 1
 
-summa = 0
-for s in str:
-    summa += int(s)
-    
-print('Summa = ', summa)
+    #     index += 1
 
-# Подсчёт суммы цифр вещественного числа ####################################
+    indexlist.sort(reverse=True)
+    return indexlist
 
-# Список произведений чисел #################################################
-
-str = input('Enter the integer number >0 : ')
-while not str.isdigit():
-    str = input('Enter the integer number >0 : ')
-n = int(str)
-
-list = []
-multiply = 1
-
-for i in range(1, n + 1):
-    multiply *= i
-    list.append(multiply)
-    
-print(list)
-
-# Список произведений чисел #################################################
-
-# Палиндром #################################################################
-
-def ReverseNumber(num):
-    ans = 0
-    while num != 0:
-        ans = ans * 10 + num % 10
-        num //= 10
-    return ans
-
-str = input('Enter the integer number >0 : ')
-while not str.isdigit():
-    str = input('Enter the integer number >0 : ')
-n = int(str)
-
-while n != ReverseNumber(n):
-    n += ReverseNumber(n)
-    
-print('Palindrome is :', n)
-
-# Палиндром #################################################################
-
-# Random ####################################################################
-
-import time
-
-def GetRandomNumber(a, b):
-    return a + int((time.time() - int(time.time())) * (10 ** 11)) % (b - a)
-
-
-RandomList = []
-for i in range(1,100):
-    RandomList.append(GetRandomNumber(1,100))
-
-
-print(RandomList)
-RandomList.sort()
-print()
-print(RandomList)
-
-# Random ####################################################################
-
-# Последовательность ########################################################
-
-n = int(input('Enter N '))
-
-list = []
-
-for i in range(1, n):
-    list.append((1 + 1/i) ** i)
-
-print(list)
-
-s = 0
-for i in list:
-    s += i
-    
-print("{:.3f}".format(s))
-
-# Последовательность ########################################################
+print(prime_numbers(50))
