@@ -1,6 +1,8 @@
 def prime_numbers(lim:int):
+    ''' Возвращает список простых чисел от 2 до lim включительно
+    '''
     nums = [i for i in range(3, lim + 1, 2)]
-    print(nums)
+ 
     indexlist = []
     index = 0
     while (index < len(nums)):
@@ -11,18 +13,31 @@ def prime_numbers(lim:int):
 
         index += 1
 
-    # index = 0
-    # while (index < len(indexlist)):
-    #     si = index + 1
-    #     while si < len(indexlist):
-    #         if indexlist[si] == indexlist[index] :
-    #             indexlist.remove(si)
-    #         else:
-    #             si += 1
-
-    #     index += 1
-
     indexlist.sort(reverse=True)
-    return indexlist
+    
+    index = 0
+    while index < len(indexlist):
+        sindex = index + 1
+        while sindex < len(indexlist) and indexlist[index] == indexlist[sindex]:
+            indexlist.pop(sindex)
+        index += 1
 
-print(prime_numbers(50))
+    for i in range(len(indexlist)):
+        nums.pop(indexlist[i])
+
+    return [2] + nums
+
+def list_of_multipliers(n):
+    '''Возвращает список простых множителей числа n
+    '''
+    lst = prime_numbers(n)
+
+    res_list = []
+    for i in range(0, len(lst)):
+        if n % lst[i] == 0:
+            res_list.append(lst[i])
+
+    return res_list
+
+print(prime_numbers(568))
+print(list_of_multipliers(568))
