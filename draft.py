@@ -66,4 +66,4 @@ def arctan_pi(accuracy) :
     
 
 
-print(list_of_multipliers(100_000_046))
+print(list_of_multipliers(1234))

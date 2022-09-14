@@ -28,14 +28,14 @@ def prime_numbers(lim):
 
 def list_of_multipliers(n):
     '''Возвращает список простых множителей числа n'''
-    lst = prime_numbers(round(n ** 0.5))
+    lst = prime_numbers(n // 2)
 
     res_list = []
-    for i in range(0, len(lst)):
-        if n % lst[i] == 0:
-            res_list.append(lst[i])
+    for i in lst :
+        if n % i == 0:
+            res_list.append(i)
 
     return res_list
 
 n = int(input('Введите целое положительное число : '))
-print('Введенное число состоит из простых множителей : ', list_of_multipliers(n))
+print('Данное число является произведением простых множителей : ', list_of_multipliers(n))
