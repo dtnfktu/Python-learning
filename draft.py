@@ -31,7 +31,7 @@ def prime_numbers(lim):
 def list_of_multipliers(n):
     '''Возвращает список простых множителей числа n
     '''
-    lst = prime_numbers(n // 2)
+    lst = prime_numbers(round(n ** 0.5))
 
     res_list = []
     for i in range(0, len(lst)):
@@ -50,7 +50,7 @@ def leibnitz_pi(n) :
     return sum * 4
 
 def arctan_pi(accuracy) :
-    '''Нахождение числа ПИ степенным рядом арктангенса
+    '''Нахождение числа ПИ степенным рядом арктангенса с точностью accuracy
     '''
     koef = 2 * (3 ** 0.5)
     final_ans = 1.0
@@ -66,4 +66,4 @@ def arctan_pi(accuracy) :
     
 
 
-print(arctan_pi(0.00000000001))
+print(list_of_multipliers(100_000_046))
