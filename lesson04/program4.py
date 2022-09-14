@@ -30,8 +30,6 @@ def write_in_file(ls:list, file_name) :
 
 
 k = int(input('Задайте натуральную степень числа : '))
-lst = [random.randint(0, 10) for i in range(0, k + 1)]
+lst = [random.randint(0, 100) for i in range(0, k + 1)]
 
 write_in_file(lst,'test.txt')
-
-#print(read_from_file())
