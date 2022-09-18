@@ -32,6 +32,6 @@ def write_in_file(ls:list, file_name) :
 
 
 k = int(input('k (> 0) = '))
-lst = [random.randint(0, 100) for i in range(0, k + 1)]
+lst = [random.randint(0, 10) for i in range(0, k + 1)]
 
 print(write_in_file(lst,'test.txt'))
