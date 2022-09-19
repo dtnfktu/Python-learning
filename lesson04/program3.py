@@ -1,6 +1,6 @@
 import random
 
-def non_repetitive_elements(ls):
+def non_repetitive_elements(ls) :
     '''Определяет все неповторяющиеся элементы в заданном списке ls'''
     ls.sort()
     result_list = []
@@ -21,7 +21,7 @@ def non_repetitive_elements(ls):
 
     return result_list
 
-lst = [random.randint(1, 101) for i in range(0,20)]
+lst = [random.randint(1, 10) for i in range(0,20)]
 print('Исходный список :')
 print(lst)
 
