@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 def read_from_file(file_name) :
     ''' Из файла считывается многочлен и возвращается список коэффициентов '''
 =======
+=======
+>>>>>>> 6a99ab257b550a0dfc7d671a48cd800e42de2843
 def make_member(koef, power) :
     '''Формирует элемент многочлена по заданным коэффициенту и степени Х'''
     if koef == 0 :
@@ -33,6 +36,9 @@ def write_in_file(ls:list, file_name) :
 
 def read_from_file(file_name) :
     '''Считывает многочлен из файла и возвращает список коэффициентов'''
+<<<<<<< HEAD
+>>>>>>> 6a99ab257b550a0dfc7d671a48cd800e42de2843
+=======
 >>>>>>> 6a99ab257b550a0dfc7d671a48cd800e42de2843
     koef = []
     with open(file_name, 'r') as f :
@@ -41,12 +47,15 @@ def read_from_file(file_name) :
     memers_list = st.split(' + ')           # Разделяем на отдельные члены
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     tmp = koef_lst[0].split('*x^')          # определяем степень многочлена
     if len(tmp) > 1 :                       # степень старшего (левого) члена
         power = int(tmp[1])                 # 
     else :                                  # предполагается, что степень 
         power = 1                           # не меньше 1
 =======
+=======
+>>>>>>> 6a99ab257b550a0dfc7d671a48cd800e42de2843
     # Убираем * и ^. Справа от х - коэффициент, слева - степень
     for i in range(0, len(memers_list)) :
         memers_list[i] = memers_list[i].replace('*','').replace('^','')
