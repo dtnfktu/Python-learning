@@ -28,10 +28,8 @@ def select_cell() :
 
 def game_over() :
     # проверка на заполнение игрового поля
-    
     if not ' ' in [x for l in game_field for x in l] :
         return True
-
     # проверка по строкам
     for rows in game_field :
         for sign in signs :
@@ -48,9 +46,8 @@ def game_over() :
             return True
         if sign == game_field[0][2] == game_field[2][2] == game_field[2][0] :
             return True
+    return False
     
-        
-
 def sign_selection() :
     '''Случайным образом определяется чьи крестики, чьи нолики'''
     if random.randint(0, 2) == 0 :
