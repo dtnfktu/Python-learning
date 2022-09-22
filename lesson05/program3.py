@@ -71,7 +71,7 @@ def sign_selection() :
         return ['X', '0']
 
 # Инициализация игры
-player2 = int(input('Chose player 2 (1 - human, 2 - computer)'))
+player2 = int(input('Chose player 2 (1 - human, 2 - computer) :'))
 game_field = clear_game_field()
 signs = sign_selection()
 current_player = 1 if signs[0] == 'X' else 2
