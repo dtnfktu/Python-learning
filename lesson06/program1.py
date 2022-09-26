@@ -1,41 +1,13 @@
-def input_int() :
-    while True :
-        st = input('Введите целое положительное число : ')
-        if st.isdigit() :
-            return int(st)
+# Задайте список из нескольких чисел. Напишите программу, которая найдёт сумму элементов списка, стоящих на нечётной позиции.
 
-def prime_nums_table(max_num : int) :
-    ''' Формирует таблицу простых чисел от 2 до max_num'''
-    nums = [i for i in range(3, max_num + 1, 2)]    # задаём множество нечётных чисел
+import random
 
-    index_list = [i for i in range(0, len(nums))]   # задаём список индексов
-    
-    for i in range(0, len(nums)) :
-        for j in range(i + nums[i], len(nums)) :
-            if nums[j] % nums[i] == 0 :
-                index_list[j] = -1                  # -1 - признак удаления из списка
+#   Задаём список случайных чисел и показываем его
+lst = [random.randint(1,100) for i in range(10)]
+print(f'Исходный список:\n{lst}')
 
-    for i in range(len(nums) - 1, 0, -1) :
-        if index_list[i] == -1 :
-            nums.pop(i)
-    
-    return [2] + nums
+# Нумеруем элементы и отсеиваем с чётными индексами
+lt = list(filter(lambda x: x[0] % 2 != 0, list(zip([i for i in range(0,len(lst))],lst))))
 
-def list_of_multipliers(n) :
-    '''Возвращает список простых множителей числа n'''
-
-    lst = prime_nums_table(n // 2)
-
-    res_list = []
-    for i in lst :
-         while n % i == 0 :
-            n //= i
-            res_list.append(i)
-
-    if not res_list :
-        return 'Число ' + str(n) + ' является простым. Делится только на 1 и на само себя.'
-
-    return res_list
-
-n = input_int()
-print('Данное число является произведением простых множителей : ', list_of_multipliers(n))
+# Суммируем элементы и показываем
+print(f'Сумма элементов на нечётных позициях = {sum(list(x[1] for x in lt))}')
