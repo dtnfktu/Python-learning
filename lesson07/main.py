@@ -114,8 +114,11 @@ def menu_point5():
     '''Удаление записи'''
     print_guide(guidelist, False)
     key = int(input('Введите номер удаляемой записи : '))
-    guidelist.pop(key - 1)
-    print_guide(guidelist)
+    if key in range(1,len(guidelist)+1) :
+        guidelist.pop(key - 1)
+    print_guide(guidelist, False)
+    print('Нажмите Enter для продолжения')
+    input()
 
 def menu_point6():
     '''Поиск записей по ключу'''
