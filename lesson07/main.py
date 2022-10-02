@@ -1,5 +1,5 @@
 from cmath import phase
-import platform
+
 
 import phonenumbers
 import os
