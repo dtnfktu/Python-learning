@@ -1,5 +1,6 @@
 from cmath import phase
 
+
 import phonenumbers
 import os
 
@@ -12,7 +13,7 @@ os.system('chcp 65001')
 
 def mainmenu():
     '''Выводит в консоль меню и возвращает выбранный пункт'''
-    os.system('cls')
+    #os.system('cls')
     print('Выберите действие :')
     print('1 - Просмотр записей')
     print('2 - Добавление записи')
