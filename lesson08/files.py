@@ -37,3 +37,25 @@ def savetojson(lst : list) :
 
     with open(fname + '.json', 'w') as wfile :
         json.dump(table, wfile)
+
+def loadfromjson(fname : str) :
+    '''Считывает данные из JSON-файла и преобразует их в список'''
+    with open(fname,'r',encoding='UTF-8') as f :
+        table = json.load(f)
+    keys = list(table.keys())
+    head = keys[0]
+    # Формируем заголовок таблицы
+    felement = (head,)
+    for headelement in table[head] :
+        felement = felement + (headelement, table[head][headelement])
+    outlist = [felement]
+    # Теперь кортежи с данными
+    for element in keys[1:] :
+        currentrec = table[element]
+        rec = ()
+        for field in currentrec :
+            rec = rec + (currentrec[field],)
+        outlist.append(rec)
+
+    return outlist
+    

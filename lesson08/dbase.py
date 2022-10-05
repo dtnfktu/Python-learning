@@ -1,13 +1,15 @@
+from re import I
+import utils as u
 
 def newtable() :
     '''Создаёт новую таблицу данных - возвращает заголовок - структуру таблицы'''
     tname = input('Enter table name : ')
     thead = (tname,)
     while True :
-        aname = input('Enter field name : ')
+        aname = input('Enter field name ("-" for end input) : ')
         if aname == '-' :
             break
-        asize = int(input('Enter field size : '))
+        asize = u.inputtype('Enter field size : ', int)
         thead = (thead) + (aname, asize)
     
     lst = [thead]
@@ -20,6 +22,31 @@ def addrecord(lst : list) :
     for i in range(1, len(tablehead), 2) :
         newelement = newelement + (input(tablehead[i] + " : "),)
     lst.append(newelement)
+
+def delrecord(lst : list, id) :
+    '''Удаляет запись из списка по заданному id'''
+    indx = -1
+    for i in range(1, len(lst[1:])+1) :
+        if lst[i][0] == id :
+            indx = i
+            break
+    if indx != -1 :
+        lst.pop(indx)
+    
+def editrecord(lst : list, id) :
+    '''Редактирование записи по id'''
+    indx = -1
+    for i in range(1, len(lst[1:])+1) :
+        if lst[i][0] == id :
+            indx = i
+            break
+    print(indx)
+    if indx != -1 :
+        head = lst[0][1:]
+        updrec = (id, ) # id не меняется
+        for i in range(2,len(head),2) :
+            updrec = updrec + (input(head[i] + ' : '),)
+        lst[indx] = updrec
 
 
 def printtable(lst : list) :
@@ -46,3 +73,6 @@ def printtable(lst : list) :
             c += record[element] + ' ' * (flen - len(record[element]) - 1) + '|'
         print(c)
         print('-' * len(c))
+
+    print('Enter Your choice : 1 - Add record, 2 - Edit record, 3 - Delete record, 0 - Back to main menu')
+    return u.inputtype('=> ',int)
