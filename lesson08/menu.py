@@ -26,4 +26,9 @@ def tablemenu(table : list) :
             idd = input('id :')
             l.editrecord(table, idd)
         
-    
+def bdaysmenu(tables : list) :
+    d = u.inputtype('Enter day : ', int)
+    m = u.inputtype('Enter month : ',int)
+    bd = str(d) if d >= 10 else ('0' + str(d))
+    bd += '.' + (str(m) if m >= 10 else ('0' + str(m)))
+    l.printtable(l.bdquery(tables, bd), False)

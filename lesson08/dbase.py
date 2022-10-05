@@ -23,24 +23,22 @@ def addrecord(lst : list) :
         newelement = newelement + (input(tablehead[i] + " : "),)
     lst.append(newelement)
 
-def delrecord(lst : list, id) :
-    '''Удаляет запись из списка по заданному id'''
-    indx = -1
+def findrec(lst : list, id) :
+    '''Возвращает индекс из таблицы по заданному id'''
     for i in range(1, len(lst[1:])+1) :
         if lst[i][0] == id :
-            indx = i
-            break
+            return i
+    return -1
+
+def delrecord(lst : list, id) :
+    '''Удаляет запись из списка по заданному id'''
+    indx = findrec(lst,id)
     if indx != -1 :
         lst.pop(indx)
     
 def editrecord(lst : list, id) :
     '''Редактирование записи по id'''
-    indx = -1
-    for i in range(1, len(lst[1:])+1) :
-        if lst[i][0] == id :
-            indx = i
-            break
-    print(indx)
+    indx = findrec(lst,id)
     if indx != -1 :
         head = lst[0][1:]
         updrec = (id, ) # id не меняется
@@ -48,12 +46,12 @@ def editrecord(lst : list, id) :
             updrec = updrec + (input(head[i] + ' : '),)
         lst[indx] = updrec
 
-
-def printtable(lst : list) :
+def printtable(lst : list, menu = True) :
     '''Выводит на экран список кортежей в виде таблицы'''
     '''Первый элемент списка - заголовок таблицы с длинами полей'''
     # Формируем шапку таблицы
     head = lst[0]
+    print('Table : ' + head[0])
     s = '|'
     for i in range(1, len(head),2) :
         fname = head[i]
@@ -73,6 +71,28 @@ def printtable(lst : list) :
             c += record[element] + ' ' * (flen - len(record[element]) - 1) + '|'
         print(c)
         print('-' * len(c))
+    if menu :
+        print('Enter Your choice : 1 - Add record, 2 - Edit record, 3 - Delete record, 0 - Back to main menu')
+        return u.inputtype('=> ',int)
+    else :
+        input('Press Enter to continue...')
 
-    print('Enter Your choice : 1 - Add record, 2 - Edit record, 3 - Delete record, 0 - Back to main menu')
-    return u.inputtype('=> ',int)
+def bdquery(dblist : list, data : str) :
+    '''Выборка всех сотрудников с днем рождения в указанный день'''
+    out = [('Birthdays at ' + data,'Name',35,'Bday',10,'Position',35,'Department',35)]
+
+    employee = dblist[2]
+    dept = dblist[0]
+    posit = dblist[1]
+    #templist = []
+
+    for i in range(1,len(employee)):
+        if data in employee[i][2] :
+            out.append((employee[i][1], employee[i][2],posit[findrec(posit,employee[i][4])][1],dept[findrec(dept,employee[i][3])][1]))
+
+
+
+    #print(templist)
+
+
+    return out

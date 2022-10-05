@@ -19,14 +19,14 @@ def start() :
             menu.tablemenu(positions)   
         elif key == 3 :
             menu.tablemenu(people)            
-    
+        elif key == 4 :
+            menu.bdaysmenu([depts,positions,people])
+
 
     files.savetojson(depts)
     files.savetojson(positions)
     files.savetojson(people)
     print('The application has shut down')
-
-
 
 # Запускаем оболочку
 start()
