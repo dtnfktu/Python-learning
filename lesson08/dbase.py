@@ -15,11 +15,18 @@ def newtable() :
     lst = [thead]
     return lst
 
+def getid(table) :
+    '''Выдаёт новый id в таблице'''
+    if len(table) < 2 :
+        return str(1)
+    else :
+        return str(max([int(atuple[0]) for atuple in table[1:]]) + 1)
+
 def addrecord(lst : list) :
     '''Добавляет в текущий список новый элемент'''
     tablehead = lst[0]
-    newelement = ()
-    for i in range(1, len(tablehead), 2) :
+    newelement = (getid(lst),)
+    for i in range(3, len(tablehead), 2) :
         newelement = newelement + (input(tablehead[i] + " : "),)
     lst.append(newelement)
 
@@ -84,15 +91,8 @@ def bdquery(dblist : list, data : str) :
     employee = dblist[2]
     dept = dblist[0]
     posit = dblist[1]
-    #templist = []
 
     for i in range(1,len(employee)):
         if data in employee[i][2] :
             out.append((employee[i][1], employee[i][2],posit[findrec(posit,employee[i][4])][1],dept[findrec(dept,employee[i][3])][1]))
-
-
-
-    #print(templist)
-
-
     return out
