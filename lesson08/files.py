@@ -1,19 +1,19 @@
 import json
 
-def loadfromfile(fname:str) :
-    '''Загружает справочник из файла, формирует список кортежей'''
-    outlist = []
-    with open(fname, 'r', encoding='UTF-8') as f :
-        s = f.read().splitlines()
-    for string in s :
-        outlist.append(tuple(string.split(';')))
-    return outlist
+# def loadfromfile(fname:str) :
+#     '''Загружает справочник из файла, формирует список кортежей'''
+#     outlist = []
+#     with open(fname, 'r', encoding='UTF-8') as f :
+#         s = f.read().splitlines()
+#     for string in s :
+#         outlist.append(tuple(string.split(';')))
+#     return outlist
 
-def savetofile(fname : str, lst : list) :
-    '''Сохраняет список кортежей в заданный файл'''
-    with open(fname, 'w', encoding='UTF-8') as f :
-        for record in lst :
-            f.write(';'.join(record) + '\r')
+# def savetofile(fname : str, lst : list) :
+#     '''Сохраняет список кортежей в заданный файл'''
+#     with open(fname, 'w', encoding='UTF-8') as f :
+#         for record in lst :
+#             f.write(';'.join(record) + '\r')
 
 def savetojson(lst : list) :
     '''Сохраняет в JSON текущий список'''
