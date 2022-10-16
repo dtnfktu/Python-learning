@@ -5,7 +5,7 @@ import parsecomplex
 import logger
 
 # иницируем бота
-bot = telebot.TeleBot("5606269494:AAFngD9467jJo8nS8icVEdEYHAIGtoQPCBY")
+bot = telebot.TeleBot(token)
 
 expr = ''
 helptext = 'Введите выражение. Например: (3+2.5)/8\nКомплексные числа заключаем в [ ], у мнимой части ставим i\n '
